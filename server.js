@@ -7,7 +7,12 @@ app.use(express.json());
 app.use(cors());
 
 
-
+app.get('/songs', (req, res) => {
+        res.json('Hello')
+    // Monkey.find({}, (err, songsHome) => {
+    //     res.json(songsHome)
+    })
+//})
 
 
 app.listen(3000, () => {
