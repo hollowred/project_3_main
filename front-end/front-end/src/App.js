@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-
+// import Record from './components/records'
 
 
 
@@ -62,8 +62,11 @@ const handleNewArtist = (event) => {
   }
 
 
-
-
+  useEffect(()=>{
+    axios.get('http://localhost:3000/songs').then((response)=>{
+      setRecord(response.data)
+    })
+  }, [])
 
 
   return (
