@@ -9,8 +9,8 @@ import axios from 'axios'
 
 function App() {
  const [record, setRecord] = useState()
-  const [artist, setArtist] = useState()
-  const [album, setAlbum] = useState()
+ const [artist, setArtist] = useState()
+ const [album, setAlbum] = useState()
 
   const [song, setSong] = useState()
 
@@ -18,7 +18,7 @@ function App() {
 
   const [albumImage, setAlbumImage] = useState()
 
-  
+
 const handleNewArtist = (event) => {
   setArtist(event.target.value);
 }
@@ -48,14 +48,14 @@ const handleNewArtist = (event) => {
       Artist: artist,
       Album: album,
       Song: song,
-      Genre: genre,  
+      Genre: genre,
       albumImage: albumImage,
-     
+
     }
   
   ).then(() =>{
     axios
-    .get('http://localhost:3000/cars').then((response) =>{
+    .get('http://localhost:3000/songs').then((response) =>{
       setRecord(response.data)
     })
   })
@@ -72,11 +72,11 @@ const handleNewArtist = (event) => {
   return (
     <>
     <h1 className="title">PlayList</h1>
-    
-    <div className='play-list'> 
+
+    <div className='play-list'>
     <form onSubmit={handleNewSongFormSubmit}>
     Artist: <input type="text"onChange={handleNewArtist}/><br/>
-    
+
        Album: <input type="text" onChange=
        {handleNewAlbum}/>
        <br></br>
@@ -92,7 +92,7 @@ const handleNewArtist = (event) => {
        <input type="submit" value="ADD SONG"/>
     </form>
     </div>
- 
+
  </>
 
   );
