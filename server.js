@@ -42,7 +42,7 @@ app.listen(3000, () => {
     console.log('listening...');
 })
 
-mongoose.connect('mongodb://localhost:27017/songs')
+mongoose.connect('mongodb://localhost:27017/song')
 mongoose.connection.once('open', () => {
     console.log('connected to mongod...');
 })

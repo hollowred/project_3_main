@@ -2,21 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-// import Record from './components/records'
+
 
 
 
 
 function App() {
- const [record, setRecord] = useState()
- const [artist, setArtist] = useState()
- const [album, setAlbum] = useState()
+ const [newRecord, setRecord] = useState()
+ const [newArtist, setArtist] = useState()
+ const [newAlbum, setAlbum] = useState()
 
-  const [song, setSong] = useState()
+  const [newSong, setSong] = useState()
 
-  const [genre, setGenre] = useState()
+  const [newGenre, setGenre] = useState()
 
-  const [albumImage, setAlbumImage] = useState()
+  const [newAlbumImage, setAlbumImage] = useState()
 
 
 const handleNewArtist = (event) => {
@@ -43,19 +43,19 @@ const handleNewArtist = (event) => {
   const handleNewSongFormSubmit = (event) =>{
     event.preventDefault()
   axios.post(
-    'http://localhost:3000/songs',
+    'http://localhost:3000/song',
     {
-      Artist: artist,
-      Album: album,
-      Song: song,
-      Genre: genre,
-      albumImage: albumImage,
+      Artist: newArtist,
+      Album: newAlbum,
+      Song: newSong,
+      Genre: newGenre,
+      albumImage: newAlbumImage,
 
     }
   
   ).then(() =>{
     axios
-    .get('http://localhost:3000/songs').then((response) =>{
+    .get('http://localhost:3000/song').then((response) =>{
       setRecord(response.data)
     })
   })
@@ -63,7 +63,7 @@ const handleNewArtist = (event) => {
 
 
   useEffect(()=>{
-    axios.get('http://localhost:3000/songs').then((response)=>{
+    axios.get('http://localhost:3000/song').then((response)=>{
       setRecord(response.data)
     })
   }, [])
@@ -75,6 +75,7 @@ const handleNewArtist = (event) => {
 
     <div className='play-list'>
     <form onSubmit={handleNewSongFormSubmit}>
+    
     Artist: <input type="text"onChange={handleNewArtist}/><br/>
 
        Album: <input type="text" onChange=
@@ -91,7 +92,9 @@ const handleNewArtist = (event) => {
        <br></br>
        <input type="submit" value="ADD SONG"/>
     </form>
+    
     </div>
+   
 
  </>
 
