@@ -86,9 +86,6 @@ const App =()=> {
     </form>
     </div>
 
-
-
-
     </section>
 
 
@@ -105,10 +102,7 @@ const App =()=> {
       }
     </ul>
   </div>
-
-
-
- </>
+  </>
 
   );
 }
