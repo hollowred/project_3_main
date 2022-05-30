@@ -54,7 +54,7 @@ const handleNewArtist = (event) => {
 
     }).then(() =>{
     axios.get('http://localhost:3000/song').then((response) =>{
-      setRecord(response.data)
+      setSongs(response.data)
     })
   })
   }
