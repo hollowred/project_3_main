@@ -46,3 +46,8 @@
   border: black solid 2px;
   height: fit-content;
 }
+
+.album-image {
+  width: 250px;
+  height: 250px;
+}
