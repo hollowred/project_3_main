@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 
@@ -8,7 +8,7 @@ import axios from 'axios'
 
 
 function App() {
- const [newRecord, setRecord] = useState()
+ const [newRecord, setRecord] = useState([])
  const [newArtist, setArtist] = useState()
  const [newAlbum, setAlbum] = useState()
 
@@ -39,23 +39,20 @@ const handleNewArtist = (event) => {
   const handleNewAlbumImage = (event)=> {
     setAlbumImage(event.target.value);
   }
-
+//___ CREATE
   const handleNewSongFormSubmit = (event) =>{
     event.preventDefault()
   axios.post(
     'http://localhost:3000/song',
     {
-      Artist: newArtist,
-      Album: newAlbum,
-      Song: newSong,
-      Genre: newGenre,
+      artist: newArtist,
+      album: newAlbum,
+      song: newSong,
+      genre: newGenre,
       albumImage: newAlbumImage,
 
-    }
-  
-  ).then(() =>{
-    axios
-    .get('http://localhost:3000/song').then((response) =>{
+    }).then(() =>{
+    axios.get('http://localhost:3000/song').then((response) =>{
       setRecord(response.data)
     })
   })
@@ -68,6 +65,7 @@ const handleNewArtist = (event) => {
     })
   }, [])
 
+  const [showRecord, setShowRecord] = useState(false)
 
   return (
     <>
@@ -75,26 +73,17 @@ const handleNewArtist = (event) => {
 
     <div className='play-list'>
     <form onSubmit={handleNewSongFormSubmit}>
-    
+
     Artist: <input type="text"onChange={handleNewArtist}/><br/>
 
-       Album: <input type="text" onChange=
-       {handleNewAlbum}/>
-       <br></br>
-       Song:  <input type="text" onChange=
-       {handleNewSong}/>
-       <br></br>
-       Genre: <input type="text" onChange=
-       {handleNewGenre}/>
-       <br></br>
-       Album Cover:  <input type="text" onChange=
-       {handleNewAlbumImage}/>
-       <br></br>
-       <input type="submit" value="ADD SONG"/>
+       Album: <input type="text" onChange={handleNewAlbum}/><br/>
+       Song:  <input type="text" onChange={handleNewSong}/><br/>
+       Genre: <input type="text" onChange={handleNewGenre}/><br/>
+       Album Cover:  <input type="text" onChange={handleNewAlbumImage}/><br/>
+
+       <input type="submit" value="Add"/>
     </form>
-    
     </div>
-   
 
  </>
 
