@@ -84,6 +84,7 @@ const handleNewArtist = (event) => {
        <input type="submit" value="Add"/>
     </form>
     </div>
+    
 
  </>
 
