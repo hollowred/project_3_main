@@ -50,22 +50,11 @@ const handleNewArtist = (event) => {
       album: newAlbum,
       song: newSong,
       genre: newGenre,
-<<<<<<< HEAD
       albumImage: newAlbumImage,
 
     }).then(() =>{
     axios.get('http://localhost:3000/song').then((response) =>{
-      setRecord(response.data)
-=======
-      // albumImage: newAlbumImage,
-
-    }
-  
-  ).then(() =>{
-    axios
-    .get('http://localhost:3000/song').then((response) =>{
       setSongs(response.data)
->>>>>>> 84da5b9 (commit on front end)
     })
   })
   }
@@ -96,10 +85,7 @@ const handleNewArtist = (event) => {
        <input type="submit" value="Add"/>
     </form>
     </div>
-<<<<<<< HEAD
-=======
     </section>
->>>>>>> 84da5b9 (commit on front end)
 
    
     <h3 className='header'> Available Songs </h3>
