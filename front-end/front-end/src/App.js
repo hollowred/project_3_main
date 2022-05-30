@@ -1,22 +1,23 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
+import Songs from './models/songs';
 
 
 
 
 
-function App() {
- const [newRecord, setRecord] = useState([])
- const [newArtist, setArtist] = useState()
- const [newAlbum, setAlbum] = useState()
+const App =()=> {
+//  const [newRecord, setRecord] = useState(false)
+ const [newArtist, setArtist] = useState('')
+ const [newAlbum, setAlbum] = useState('')
+const [newNew, setNewNew] = useState("")
+  const [newSong, setSong] = useState("")
+  const [songs, setSongs] = useState([]);
+  const [newGenre, setGenre] = useState("")
 
-  const [newSong, setSong] = useState()
-
-  const [newGenre, setGenre] = useState()
-
-  const [newAlbumImage, setAlbumImage] = useState()
+  const [newAlbumImage, setAlbumImage] = useState("")
 
 
 const handleNewArtist = (event) => {
@@ -53,7 +54,7 @@ const handleNewArtist = (event) => {
 
     }).then(() =>{
     axios.get('http://localhost:3000/song').then((response) =>{
-      setRecord(response.data)
+      setSongs(response.data)
     })
   })
   }
@@ -61,7 +62,7 @@ const handleNewArtist = (event) => {
 
   useEffect(()=>{
     axios.get('http://localhost:3000/song').then((response)=>{
-      setRecord(response.data)
+      setSongs(response.data)
     })
   }, [])
 
@@ -70,7 +71,7 @@ const handleNewArtist = (event) => {
   return (
     <>
     <h1 className="title">PlayList</h1>
-
+    <section>
     <div className='play-list'>
     <form onSubmit={handleNewSongFormSubmit}>
 
@@ -84,8 +85,29 @@ const handleNewArtist = (event) => {
        <input type="submit" value="Add"/>
     </form>
     </div>
+<<<<<<< HEAD
     
 
+=======
+    </section>
+
+   
+    <h3 className='header'> Available Songs </h3>
+     
+  
+    <ul>
+      {
+        songs.map((song)=> {
+          return <li>
+            {songs.name}
+          </li>
+        })
+      }
+    </ul>
+  
+
+  
+>>>>>>> 140bc8b9d4ad9d3fae2374bd89cf125ccc9f3f72
  </>
 
   );
