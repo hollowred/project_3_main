@@ -12,7 +12,6 @@ const App =()=> {
 //  const [newRecord, setRecord] = useState(false)
   const [newArtist, setArtist] = useState('')
   const [newAlbum, setAlbum] = useState('')
-  const [newNew, setNewNew] = useState("")
   const [newSong, setSong] = useState("")
   const [songs, setSongs] = useState([]);
   const [newGenre, setGenre] = useState("")
@@ -59,6 +58,18 @@ const App =()=> {
     })
   }
 
+  const handleDelete = (event)=>{
+    axios
+        .delete(`http://localhost:3000/song/${event._id}`)
+        .then(()=>{
+            axios
+                .get('http://localhost:3000/song')
+                .then((response)=>{
+                    setSongs(response.data)
+                })
+        })
+  }
+
 
   useEffect(()=>{
     axios.get('http://localhost:3000/song').then((response)=>{
@@ -66,7 +77,7 @@ const App =()=> {
     })
   }, [])
 
-  const [showRecord, setShowRecord] = useState(false)
+
 
   return (
     <>
@@ -80,7 +91,7 @@ const App =()=> {
        Album: <input type="text" onChange={handleNewAlbum}/><br/>
        Song:  <input type="text" onChange={handleNewSong}/><br/>
        Genre: <input type="text" onChange={handleNewGenre}/><br/>
-       Album Cover:  <input type="text" onChange={handleNewAlbumImage}/><br/>
+       Album Cover:  <input type="url" onChange={handleNewAlbumImage}/><br/>
 
        <input type="submit" value="Add"/>
     </form>
@@ -92,15 +103,25 @@ const App =()=> {
     <h3 className='header'> Available Songs </h3>
 
   <div key={songs._id}>
-    <ul>
+    <div>
       {
         songs.map((song)=> {
           return <li>
-            {song.song}
+            Artist: {song.artist}
+            <br></br>
+           Song: {song.song}
+           <br></br>
+           Album: {song.album}
+           <br></br>
+           Genre: {song.genre}
+           <br></br>
+         <img src={song.albumImage} className="album-image"/>
+          <br></br>
+          <button onClick={(event) => {handleDelete(songs)}}>Delete Song</button>
           </li>
         })
       }
-    </ul>
+    </div>
   </div>
   </>
 
