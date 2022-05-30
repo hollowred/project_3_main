@@ -96,7 +96,7 @@ const App =()=> {
       {
         songs.map((song)=> {
           return <li>
-            {songs.song}
+            {song.song}
           </li>
         })
       }
