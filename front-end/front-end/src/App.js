@@ -85,10 +85,6 @@ const handleNewArtist = (event) => {
        <input type="submit" value="Add"/>
     </form>
     </div>
-<<<<<<< HEAD
-    
-
-=======
     </section>
 
    
@@ -107,7 +103,6 @@ const handleNewArtist = (event) => {
   
 
   
->>>>>>> 140bc8b9d4ad9d3fae2374bd89cf125ccc9f3f72
  </>
 
   );
