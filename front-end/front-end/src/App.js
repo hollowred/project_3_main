@@ -2,7 +2,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
-import Song from './models/songs';
+
 
 
 
@@ -58,9 +58,9 @@ const App =()=> {
     })
   }
 
-  const handleDelete = (event)=>{
+  const handleDelete = (songsData)=>{
     axios
-        .delete(`http://localhost:3000/song/${event._id}`)
+        .delete(`http://localhost:3000/song/${songsData._id}`)
         .then(()=>{
             axios
                 .get('http://localhost:3000/song')
@@ -117,7 +117,7 @@ const App =()=> {
            <br></br>
          <img src={song.albumImage} className="album-image"/>
           <br></br>
-          <button onClick={(event) => {handleDelete(songs)}}>Delete Song</button>
+          <button onClick={(event) => {handleDelete(song)}}>Delete Song</button>
           </li>
         })
       }

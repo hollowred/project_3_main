@@ -23,11 +23,11 @@ app.get('/song', (req, res) => {
     })
 })
 ///DELETE
-// app.delete('/song/:id', (req, res)=>{
-//     Songs.findByIdAndRemove(req.params.id, (err, deletedSong)=>{
-//         res.json(deletedSong)
-//     })
-// })
+ app.delete('/song/:id', (req, res)=>{
+    Songs.findByIdAndRemove(req.params.id, (err, deletedSong)=>{
+         res.json(deletedSong)
+     })
+ })
 
 ////UPDATE
 // app.put('/song/:id', (req,res)=>{
