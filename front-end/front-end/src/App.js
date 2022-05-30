@@ -1,22 +1,23 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios'
+import Songs from './models/songs';
 
 
 
 
 
-function App() {
- const [newRecord, setRecord] = useState()
- const [newArtist, setArtist] = useState()
- const [newAlbum, setAlbum] = useState()
+const App =()=> {
+//  const [newRecord, setRecord] = useState(false)
+ const [newArtist, setArtist] = useState('')
+ const [newAlbum, setAlbum] = useState('')
+const [newNew, setNewNew] = useState("")
+  const [newSong, setSong] = useState("")
+  const [songs, setSongs] = useState([]);
+  const [newGenre, setGenre] = useState("")
 
-  const [newSong, setSong] = useState()
-
-  const [newGenre, setGenre] = useState()
-
-  const [newAlbumImage, setAlbumImage] = useState()
+  const [newAlbumImage, setAlbumImage] = useState("")
 
 
 const handleNewArtist = (event) => {
@@ -39,24 +40,32 @@ const handleNewArtist = (event) => {
   const handleNewAlbumImage = (event)=> {
     setAlbumImage(event.target.value);
   }
-
+//___ CREATE
   const handleNewSongFormSubmit = (event) =>{
     event.preventDefault()
   axios.post(
     'http://localhost:3000/song',
     {
-      Artist: newArtist,
-      Album: newAlbum,
-      Song: newSong,
-      Genre: newGenre,
+      artist: newArtist,
+      album: newAlbum,
+      song: newSong,
+      genre: newGenre,
+<<<<<<< HEAD
       albumImage: newAlbumImage,
+
+    }).then(() =>{
+    axios.get('http://localhost:3000/song').then((response) =>{
+      setRecord(response.data)
+=======
+      // albumImage: newAlbumImage,
 
     }
   
   ).then(() =>{
     axios
     .get('http://localhost:3000/song').then((response) =>{
-      setRecord(response.data)
+      setSongs(response.data)
+>>>>>>> 84da5b9 (commit on front end)
     })
   })
   }
@@ -64,38 +73,50 @@ const handleNewArtist = (event) => {
 
   useEffect(()=>{
     axios.get('http://localhost:3000/song').then((response)=>{
-      setRecord(response.data)
+      setSongs(response.data)
     })
   }, [])
 
+  const [showRecord, setShowRecord] = useState(false)
 
   return (
     <>
     <h1 className="title">PlayList</h1>
-
+    <section>
     <div className='play-list'>
     <form onSubmit={handleNewSongFormSubmit}>
-    
+
     Artist: <input type="text"onChange={handleNewArtist}/><br/>
 
-       Album: <input type="text" onChange=
-       {handleNewAlbum}/>
-       <br></br>
-       Song:  <input type="text" onChange=
-       {handleNewSong}/>
-       <br></br>
-       Genre: <input type="text" onChange=
-       {handleNewGenre}/>
-       <br></br>
-       Album Cover:  <input type="text" onChange=
-       {handleNewAlbumImage}/>
-       <br></br>
-       <input type="submit" value="ADD SONG"/>
-    </form>
-    
-    </div>
-   
+       Album: <input type="text" onChange={handleNewAlbum}/><br/>
+       Song:  <input type="text" onChange={handleNewSong}/><br/>
+       Genre: <input type="text" onChange={handleNewGenre}/><br/>
+       Album Cover:  <input type="text" onChange={handleNewAlbumImage}/><br/>
 
+       <input type="submit" value="Add"/>
+    </form>
+    </div>
+<<<<<<< HEAD
+=======
+    </section>
+>>>>>>> 84da5b9 (commit on front end)
+
+   
+    <h3 className='header'> Available Songs </h3>
+     
+  
+    <ul>
+      {
+        songs.map((song)=> {
+          return <li>
+            {songs.name}
+          </li>
+        })
+      }
+    </ul>
+  
+
+  
  </>
 
   );
