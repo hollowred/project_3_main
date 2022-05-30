@@ -2,7 +2,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
-import Songs from './models/songs';
+import Song from './models/songs';
 
 
 
@@ -10,9 +10,9 @@ import Songs from './models/songs';
 
 const App =()=> {
 //  const [newRecord, setRecord] = useState(false)
- const [newArtist, setArtist] = useState('')
- const [newAlbum, setAlbum] = useState('')
-const [newNew, setNewNew] = useState("")
+  const [newArtist, setArtist] = useState('')
+  const [newAlbum, setAlbum] = useState('')
+  const [newNew, setNewNew] = useState("")
   const [newSong, setSong] = useState("")
   const [songs, setSongs] = useState([]);
   const [newGenre, setGenre] = useState("")
@@ -20,9 +20,9 @@ const [newNew, setNewNew] = useState("")
   const [newAlbumImage, setAlbumImage] = useState("")
 
 
-const handleNewArtist = (event) => {
+  const handleNewArtist = (event) => {
   setArtist(event.target.value);
-}
+  }
 
   const handleNewAlbum = (event)=> {
     setAlbum(event.target.value);
@@ -55,8 +55,8 @@ const handleNewArtist = (event) => {
     }).then(() =>{
     axios.get('http://localhost:3000/song').then((response) =>{
       setSongs(response.data)
+      })
     })
-  })
   }
 
 
@@ -85,29 +85,29 @@ const handleNewArtist = (event) => {
        <input type="submit" value="Add"/>
     </form>
     </div>
-<<<<<<< HEAD
-    
 
-=======
+
+
+
     </section>
 
-   
+
     <h3 className='header'> Available Songs </h3>
-     
-  
+
+  <div key={songs._id}>
     <ul>
       {
         songs.map((song)=> {
           return <li>
-            {songs.name}
+            {songs.song}
           </li>
         })
       }
     </ul>
-  
+  </div>
 
-  
->>>>>>> 140bc8b9d4ad9d3fae2374bd89cf125ccc9f3f72
+
+
  </>
 
   );

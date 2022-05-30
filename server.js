@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const Songs = require('./front-end/front-end/src/models/songs');
+const Song = require('./front-end/front-end/src/models/songs');
 const app = express();
 
 app.use(express.json());
@@ -11,14 +11,14 @@ app.use(cors());
 
 // //CREATE
 app.post('/song', (req, res) => {
-    Songs.create(req.body, (err, createdSong) => {
+    Song.create(req.body, (err, createdSong) => {
         res.json(createdSong)
 
     })
 })
 //INDEX
 app.get('/song', (req, res) => {
-    Songs.find({}, (err, foundSong) => {
+    Song.find({}, (err, foundSong) => {
         res.json(foundSong)
     })
 })
