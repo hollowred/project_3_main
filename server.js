@@ -41,18 +41,18 @@ app.get('/song', (req, res) => {
 })
 ///DELETE
  app.delete('/song/:id', (req, res)=>{
-    Songs.findByIdAndRemove(req.params.id, (err, deletedSong)=>{
+    Song.findByIdAndRemove(req.params.id, (err, deletedSong)=>{
          res.json(deletedSong)
      })
  })
 
-////UPDATE
-// app.put('/song/:id', (req,res)=>{
-//     Songs.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedSong)=>{
-//         res.json(updatedSong)
-//     })
+//UPDATE
+app.put('/song/:id', (req,res)=>{
+     Song.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedSong)=>{
+         res.json(updatedSong)
+     })
 
-//    })
+    })
 
 
 app.listen(3000, () => {

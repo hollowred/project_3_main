@@ -17,7 +17,7 @@ const App =()=> {
   const [newGenre, setGenre] = useState("")
 
   const [newAlbumImage, setAlbumImage] = useState("")
-
+  const [updateSong, setUpdateSong] = useState(false)
 
   const handleNewArtist = (event) => {
   setArtist(event.target.value);
@@ -58,9 +58,11 @@ const App =()=> {
     })
   }
 
-  const handleDelete = (songsData)=>{
+//____DELETE
+
+  const handleDelete = (event)=>{
     axios
-        .delete(`http://localhost:3000/song/${songsData._id}`)
+        .delete(`http://localhost:3000/song/${event._id}`)
         .then(()=>{
             axios
                 .get('http://localhost:3000/song')
@@ -70,6 +72,21 @@ const App =()=> {
         })
   }
 
+//___UPDATE
+    const handleUpdate = (event, songsData) => {
+      event.preventDefault();
+      axios.put(`http://localhost:3000/song/${songsData._id}`,
+        {
+          artist: newArtist,
+          album: newAlbum,
+          song: newSong,
+          genre: newGenre,
+          albumImage: newAlbumImage,
+        }).then(() => {axios.get('http://localhost:3000/song').then((response) => {
+            setSongs(response.data)
+        })
+      })
+    }
 
   useEffect(()=>{
     axios.get('http://localhost:3000/song').then((response)=>{
@@ -118,7 +135,19 @@ const App =()=> {
          <img src={song.albumImage} className="album-image"/>
           <br></br>
           <button onClick={(event) => {handleDelete(song)}}>Delete Song</button>
+          <button className ="btn btn-warning" onClick={()=>setUpdateSong(s=>!s)} > Click Here to Update</button>
+   { updateSong ?
+   <form onSubmit ={(event)=>{handleUpdate(event, song)}}>
+            Artist: <input type="text" defaultValue={song.artist} onChange={handleNewArtist}/><br/>
+             Album: <input type="text" defaultValue={song.album} onChange={handleNewAlbum}/><br/>
+             Song:  <input type="text" defaultValue={song.song} onChange={handleNewSong}/><br/>
+             Genre: <input type="text" defaultValue={song.genre} onChange={handleNewGenre}/><br/>
+             Album Cover:  <input type="url" defaultValue={song.albumImage} onChange={handleNewAlbumImage}/><br/>
+
+             <input type="submit" value="Update"/>
+             </form> : "" }
           </li>
+
         })
       }
     </div>
