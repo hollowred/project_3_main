@@ -58,9 +58,9 @@ const App =()=> {
     })
   }
 
-  const handleDelete = (songsData)=>{
+  const handleDelete = (event)=>{
     axios
-        .delete(`http://localhost:3000/song/${songsData._id}`)
+        .delete(`http://localhost:3000/song/${event._id}`)
         .then(()=>{
             axios
                 .get('http://localhost:3000/song')
