@@ -120,10 +120,10 @@ const App =()=> {
     <h3 className='header'> Available Songs </h3>
 
   <div key={songs._id}>
-    <div>
+    <div className='container'>
       {
         songs.map((song)=> {
-          return <li>
+          return <div className='song-container'>
             Artist: {song.artist}
             <br></br>
            Song: {song.song}
@@ -139,14 +139,14 @@ const App =()=> {
    { updateSong ?
    <form onSubmit ={(event)=>{handleUpdate(event, song)}}>
             Artist: <input type="text" defaultValue={song.artist} onChange={handleNewArtist}/><br/>
-             Album: <input type="text" defaultValue={song.album} onChange={handleNewAlbum}/><br/>
              Song:  <input type="text" defaultValue={song.song} onChange={handleNewSong}/><br/>
+             Album: <input type="text" defaultValue={song.album} onChange={handleNewAlbum}/><br/>
              Genre: <input type="text" defaultValue={song.genre} onChange={handleNewGenre}/><br/>
              Album Cover:  <input type="url" defaultValue={song.albumImage} onChange={handleNewAlbumImage}/><br/>
 
              <input type="submit" value="Update"/>
              </form> : "" }
-          </li>
+          </div>
 
         })
       }
@@ -158,3 +158,4 @@ const App =()=> {
 }
 
 export default App;
+
