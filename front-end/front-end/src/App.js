@@ -73,9 +73,9 @@ const App =()=> {
   }
 
 //___UPDATE
-    const handleUpdate = (event, eventData) => {
+    const handleUpdate = (event, songsData) => {
       event.preventDefault();
-      axios.put(`http://localhost:3000/song/${event._id}`,
+      axios.put(`http://localhost:3000/song/${songsData._id}`,
         {
           artist: newArtist,
           album: newAlbum,
@@ -137,7 +137,7 @@ const App =()=> {
           <button onClick={(event) => {handleDelete(song)}}>Delete Song</button>
           <button className ="btn btn-warning" onClick={()=>setUpdateSong(s=>!s)} > Click Here to Update</button>
    { updateSong ?
-   <form onSubmit ={(event)=>{updateSong(event, song)}}>
+   <form onSubmit ={(event)=>{handleUpdate(event, song)}}>
             Artist: <input type="text" defaultValue={song.artist} onChange={handleNewArtist}/><br/>
              Album: <input type="text" defaultValue={song.album} onChange={handleNewAlbum}/><br/>
              Song:  <input type="text" defaultValue={song.song} onChange={handleNewSong}/><br/>
