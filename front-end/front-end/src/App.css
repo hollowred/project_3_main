@@ -1,3 +1,10 @@
+body {
+background-color: beige;
+
+}
+
+
+
 .App {
   text-align: center;
 }
@@ -48,14 +55,15 @@
 }
 
 .album-image {
-  width: 250px;
-  height: 250px;
+  width: 120px;
+  height: 120px;
 }
 
 .song-container {
   text-align: center;
-  border: black 5px dotted;
-  width: 350px;
+  /* border: black 5px dotted; */
+  width: 250px;
+  height: 250px;
 }
 
 .container {
@@ -65,3 +73,4 @@
   position: relative;
 
 }
+
