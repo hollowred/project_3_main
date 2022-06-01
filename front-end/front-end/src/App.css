@@ -47,10 +47,19 @@ background-color: beige;
   text-align: center;
 }
 
-.play-list {
+.header {
   text-align: center;
-  align-items: center;
+  font-size: x-large;
+  /* font-size: 45px; */
+  font-family: Jazz LET, fantasy;
+}
+.play-list {
+justify-content: center;
+  text-align: center;
   border: black solid 2px;
+  width: 400px;
+  margin: auto;
+  border-radius: 25px;
   height: fit-content;
 }
 
@@ -59,18 +68,20 @@ background-color: beige;
   height: 120px;
 }
 
-.song-container {
-  text-align: center;
-  /* border: black 5px dotted; */
-  width: 250px;
-  height: 250px;
-}
+
+  
+
 
 .container {
+ align-items: center;
+ text-align: center;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   padding: 10px;
-  position: relative;
+  position: absolute;
+  border: #282c34 dotted 5px;
 
 }
+
 
