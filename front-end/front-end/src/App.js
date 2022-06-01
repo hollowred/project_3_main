@@ -2,20 +2,18 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
+import React from "react";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 
-
-
-
-
-const App =()=> {
+ const App =()=> {
 //  const [newRecord, setRecord] = useState(false)
   const [newArtist, setArtist] = useState('')
   const [newAlbum, setAlbum] = useState('')
   const [newSong, setSong] = useState("")
   const [songs, setSongs] = useState([]);
   const [newGenre, setGenre] = useState("")
-
+  const [newVideo, setNewVideo] = useState('')
   const [newAlbumImage, setAlbumImage] = useState("")
   const [updateSong, setUpdateSong] = useState(false)
 
@@ -26,6 +24,9 @@ const App =()=> {
   const handleNewAlbum = (event)=> {
     setAlbum(event.target.value);
   }
+  const handleNewVideo = (event) => {
+    setNewVideo(event.target.value);
+    }
 
 
   const handleNewSong = (event)=> {
@@ -50,6 +51,7 @@ const App =()=> {
       song: newSong,
       genre: newGenre,
       albumImage: newAlbumImage,
+      video: newVideo
 
     }).then(() =>{
     axios.get('http://localhost:3000/song').then((response) =>{
@@ -82,6 +84,7 @@ const App =()=> {
           song: newSong,
           genre: newGenre,
           albumImage: newAlbumImage,
+          video:newVideo,
         }).then(() => {axios.get('http://localhost:3000/song').then((response) => {
             setSongs(response.data)
         })
@@ -109,13 +112,16 @@ const App =()=> {
        Song:  <input type="text" onChange={handleNewSong}/><br/>
        Genre: <input type="text" onChange={handleNewGenre}/><br/>
        Album Cover:  <input type="url" onChange={handleNewAlbumImage}/><br/>
+       Video:  <input  embedId="url" onChange={handleNewVideo}/>
+      
+    
 
        <input type="submit" value="Add"/>
     </form>
     </div>
 
     </section>
-
+   
 
     <h3 className='header'> Available Songs </h3>
 
@@ -134,8 +140,13 @@ const App =()=> {
            <br></br>
          <img src={song.albumImage} className="album-image"/>
           <br></br>
+        
+          <YoutubeEmbed embedId={song.video} />
+        
+          <br></br>
           <button onClick={(event) => {handleDelete(song)}}>Delete Song</button>
           <button className ="btn btn-warning" onClick={()=>setUpdateSong(s=>!s)} > Click Here to Update</button>
+         
    { updateSong ?
    <form onSubmit ={(event)=>{handleUpdate(event, song)}}>
             Artist: <input type="text" defaultValue={song.artist} onChange={handleNewArtist}/><br/>
@@ -146,7 +157,7 @@ const App =()=> {
 
              <input type="submit" value="Update"/>
              </form> : "" }
-          </div>
+           </div>
 
         })
       }
@@ -158,4 +169,3 @@ const App =()=> {
 }
 
 export default App;
-
