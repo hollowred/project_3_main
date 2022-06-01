@@ -1,3 +1,10 @@
+body {
+background-color: beige;
+
+}
+
+
+
 .App {
   text-align: center;
 }
@@ -46,3 +53,24 @@
   border: black solid 2px;
   height: fit-content;
 }
+
+.album-image {
+  width: 120px;
+  height: 120px;
+}
+
+.song-container {
+  text-align: center;
+  /* border: black 5px dotted; */
+  width: 250px;
+  height: 250px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  position: relative;
+
+}
+
