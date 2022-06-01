@@ -123,13 +123,13 @@ import YoutubeEmbed from "./YoutubeEmbed";
     </section>
    
 
-    <h3 className='header'> Available Songs </h3>
+    <h3 className='header'> Recommended Songs  </h3>
 
   <div key={songs._id}>
     <div className='container'>
       {
         songs.map((song)=> {
-          return <div className='song-container'>
+          return <div>
             Artist: {song.artist}
             <br></br>
            Song: {song.song}
@@ -146,15 +146,16 @@ import YoutubeEmbed from "./YoutubeEmbed";
           <br></br>
           <button onClick={(event) => {handleDelete(song)}}>Delete Song</button>
           <button className ="btn btn-warning" onClick={()=>setUpdateSong(s=>!s)} > Click Here to Update</button>
-         
+       
    { updateSong ?
    <form onSubmit ={(event)=>{handleUpdate(event, song)}}>
+     
             Artist: <input type="text" defaultValue={song.artist} onChange={handleNewArtist}/><br/>
              Song:  <input type="text" defaultValue={song.song} onChange={handleNewSong}/><br/>
              Album: <input type="text" defaultValue={song.album} onChange={handleNewAlbum}/><br/>
              Genre: <input type="text" defaultValue={song.genre} onChange={handleNewGenre}/><br/>
              Album Cover:  <input type="url" defaultValue={song.albumImage} onChange={handleNewAlbumImage}/><br/>
-
+             Video:  <input  embedId="url" onChange={handleNewVideo}/><br/>
              <input type="submit" value="Update"/>
              </form> : "" }
            </div>
