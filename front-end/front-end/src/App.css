@@ -1,5 +1,8 @@
 body {
 background-color: beige;
+background: url("https://thumbs.dreamstime.com/b/dirty-music-background-21777451.jpg");
+background-repeat: no-repeat;
+background-size: cover;
 
 }
 
@@ -61,6 +64,7 @@ justify-content: center;
   margin: auto;
   border-radius: 25px;
   height: fit-content;
+  ;
 }
 
 .album-image {
@@ -81,6 +85,9 @@ justify-content: center;
   padding: 10px;
   position: absolute;
   border: #282c34 dotted 5px;
+  background-color: black ;
+  opacity: 0.8;
+  color: white;
 
 }
 
