@@ -3,11 +3,7 @@ background-color: beige;
 background: url("https://thumbs.dreamstime.com/b/dirty-music-background-21777451.jpg");
 background-repeat: no-repeat;
 background-size: cover;
-<<<<<<< HEAD
 cursor: pointer;
-=======
-
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba
 }
 
 
@@ -63,25 +59,18 @@ cursor: pointer;
 .play-list {
 justify-content: center;
   text-align: center;
-<<<<<<< HEAD
   font-size: medium;
   border: black solid 6px;
-=======
-  border: black solid 2px;
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba
   width: 400px;
   margin: auto;
   border-radius: 25px;
   height: fit-content;
   ;
-<<<<<<< HEAD
 }
 
 .list {
   font-size: large;
   font-weight: bold;
-=======
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba
 }
 
 .album-image {
@@ -90,7 +79,7 @@ justify-content: center;
 }
 
 
-  
+
 
 
 .container {
@@ -105,7 +94,6 @@ justify-content: center;
   background-color: black ;
   opacity: 0.8;
   color: white;
-<<<<<<< HEAD
 
 }
 
@@ -113,8 +101,6 @@ justify-content: center;
   border: white 1px solid;
   border-radius: 25px;
 } */
-=======
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba
 
 .update-btn  {
 color: white;
@@ -123,7 +109,6 @@ border-radius: 35px;
 font-size: medium;
 }
 
-<<<<<<< HEAD
 .delete-btn {
   color: white;
 background-color: #282c34;
@@ -176,6 +161,3 @@ font-size: medium;
   color: black;
   background-color: whitesmoke;
 }
-=======
-
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba

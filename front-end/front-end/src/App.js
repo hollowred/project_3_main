@@ -113,7 +113,7 @@ import YoutubeEmbed from "./YoutubeEmbed";
        Song:  <input type="text" onChange={handleNewSong}/><br/>
        Genre: <input type="text" onChange={handleNewGenre}/><br/>
        Album Cover:  <input type="url" onChange={handleNewAlbumImage}/><br/>
-       Video:  <input embedId="url" onChange={handleNewVideo}/> 
+       Video:  <input embedId="url" onChange={handleNewVideo}/>
 
 
        <input className='add-btn' type="submit" value="Add"/>
@@ -122,22 +122,14 @@ import YoutubeEmbed from "./YoutubeEmbed";
 
     </section>
 
-<<<<<<< HEAD
 
     <h3 className='header'> TOP SONGS FROM AROUND THE WORLD </h3>
-=======
-    <h3 className='header'> Recommended Songs  </h3>
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba
 
   <div key={songs._id}>
     <div className='container'>
       {
         songs.map((song)=> {
-<<<<<<< HEAD
           return <div  >
-=======
-          return <div>
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba
             Artist: {song.artist}
             <br></br>
            Song: {song.song}
@@ -155,31 +147,18 @@ import YoutubeEmbed from "./YoutubeEmbed";
           : "" }
         <br></br>
          <button className='delete-btn' onClick={(event) => {handleDelete(song)}}>Delete Song</button> <br></br>
-        
-<<<<<<< HEAD
+
           <button className ="update-btn" onClick={()=>setUpdateSong(s=>!s)} >Update</button>
          </div>
-=======
-          <br></br>
-          <button onClick={(event) => {handleDelete(song)}}>Delete Song</button>
-          <button className ="btn btn-warning" onClick={()=>setUpdateSong(s=>!s)} > Click Here to Update</button>
-       
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba
    { updateSong ?
    <form onSubmit ={(event)=>{handleUpdate(event, song)}}>
-     
             Artist: <input type="text" defaultValue={song.artist} onChange={handleNewArtist}/><br/>
              Song:  <input type="text" defaultValue={song.song} onChange={handleNewSong}/><br/>
              Album: <input type="text" defaultValue={song.album} onChange={handleNewAlbum}/><br/>
              Genre: <input type="text" defaultValue={song.genre} onChange={handleNewGenre}/><br/>
              Album Cover:  <input type="url" defaultValue={song.albumImage} onChange={handleNewAlbumImage}/><br/>
-<<<<<<< HEAD
 
              <input className='update-form' type="submit" value="Update"/>
-=======
-             Video:  <input  embedId="url" onChange={handleNewVideo}/><br/>
-             <input type="submit" value="Update"/>
->>>>>>> 2de5b2aeb22e0f1a84014648b21a263022eef0ba
              </form> : "" }
            </div>
 
@@ -193,4 +172,3 @@ import YoutubeEmbed from "./YoutubeEmbed";
 }
 
 export default App;
-
