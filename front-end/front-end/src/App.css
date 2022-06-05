@@ -3,7 +3,7 @@ background-color: beige;
 background: url("https://thumbs.dreamstime.com/b/dirty-music-background-21777451.jpg");
 background-repeat: no-repeat;
 background-size: cover;
-
+cursor: pointer;
 }
 
 
@@ -59,12 +59,18 @@ background-size: cover;
 .play-list {
 justify-content: center;
   text-align: center;
-  border: black solid 2px;
+  font-size: medium;
+  border: black solid 6px;
   width: 400px;
   margin: auto;
   border-radius: 25px;
   height: fit-content;
   ;
+}
+
+.list {
+  font-size: large;
+  font-weight: bold;
 }
 
 .album-image {
@@ -91,4 +97,67 @@ justify-content: center;
 
 }
 
+/* .buttons {
+  border: white 1px solid;
+  border-radius: 25px;
+} */
 
+.update-btn  {
+color: white;
+background-color: #282c34;
+border-radius: 35px;
+font-size: medium;
+}
+
+.delete-btn {
+  color: white;
+background-color: #282c34;
+border-radius: 35px;
+font-size: medium;
+}
+
+.watch-btn {
+  color: white;
+background-color: #282c34;
+border-radius: 35px;
+font-size: medium;
+}
+
+.add-btn {
+  color: white;
+background-color: #282c34;
+border-radius: 35px;
+font-size: medium;
+}
+
+.add-btn:hover {
+  color: black;
+  background-color: firebrick;
+}
+
+.watch-btn:hover {
+  color: black;
+  background-color: whitesmoke;
+}
+
+.delete-btn:hover {
+  color: black;
+  background-color: whitesmoke;
+}
+
+.update-btn:hover {
+  color: black;
+  background-color: whitesmoke;
+}
+
+.update-form {
+  color: white;
+background-color: #282c34;
+border-radius: 35px;
+font-size: medium;
+}
+
+.update-form:hover {
+  color: black;
+  background-color: whitesmoke;
+}
