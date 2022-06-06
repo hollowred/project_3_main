@@ -3,6 +3,7 @@ background-color: beige;
 background: url("https://thumbs.dreamstime.com/b/dirty-music-background-21777451.jpg");
 background-repeat: no-repeat;
 background-size: cover;
+background-attachment: fixed;
 cursor: pointer;
 }
 
@@ -79,8 +80,13 @@ justify-content: center;
 }
 
 
-
-
+  
+.section {
+  border: white 2px solid;
+  /* padding: 15px; */
+  padding: 25px;
+  justify-content: space-evenly;
+}
 
 .container {
  align-items: center;
@@ -97,11 +103,13 @@ justify-content: center;
 
 }
 
-/* .buttons {
-  border: white 1px solid;
-  border-radius: 25px;
-} */
+footer {
 
+  text-align: center;
+  display: block;
+  position: static;
+
+}
 .update-btn  {
 color: white;
 background-color: #282c34;
@@ -161,3 +169,4 @@ font-size: medium;
   color: black;
   background-color: whitesmoke;
 }
+
