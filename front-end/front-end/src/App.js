@@ -157,6 +157,8 @@ import YoutubeEmbed from "./YoutubeEmbed";
              Album: <input type="text" defaultValue={song.album} onChange={handleNewAlbum}/><br/>
              Genre: <input type="text" defaultValue={song.genre} onChange={handleNewGenre}/><br/>
              Album Cover:  <input type="url" defaultValue={song.albumImage} onChange={handleNewAlbumImage}/><br/>
+             Video:  <input embedId="url" defaultValue={song.video} onChange={handleNewVideo}/>
+
 
              <input className='update-form' type="submit" value="Update"/>
              </form> : "" }
